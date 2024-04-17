@@ -5,4 +5,10 @@
   width: 100%;
   max-width: 340px;
   gap: var(--spacing-md);
+
+  align-items: center;
+}
+
+.container a {
+  width: 100%;
 }
