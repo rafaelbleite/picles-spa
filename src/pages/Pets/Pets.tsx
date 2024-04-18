@@ -1,7 +1,8 @@
-import { Link } from 'react-router-dom'
+import { Card } from '../../components/common/Card'
 import { Header } from '../../components/common/Header'
 import { Grid } from '../../components/layout/Grid'
 import styles from './Pets.module.css'
+import { Skeleton } from '../../components/common/Skeleton'
 
 export function Pets() {
   return (
@@ -9,7 +10,12 @@ export function Pets() {
       <Grid>
         <div className={styles.container}>
           <Header />
-          <Link to="/pets/20">Ir para listagem</Link>
+          <main className={styles.list}>
+            <Skeleton count={5} containerClassName={styles.skeleton} />
+            <Card href="/pets/1" text="Nina" thumb="" />
+            <Card href="/pets/2" text="Bob" thumb="" />
+            <Card href="/pets/3" text="Jão" thumb="" />
+          </main>
         </div>
       </Grid>
     </>
