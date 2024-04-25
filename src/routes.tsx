@@ -3,6 +3,9 @@ import { Home } from './pages/Home'
 import { Pets } from './pages/Pets'
 import { Header } from './components/common/Header'
 import { PetDetails } from './pages/PetDetails'
+import { Shelter } from './pages/Admin/Shelter'
+import { PetList } from './pages/Admin/PetList'
+import { AuthHOC } from './components/common/AuthHOC/AuthHOC'
 
 const router = createBrowserRouter([
   {
@@ -19,7 +22,17 @@ const router = createBrowserRouter([
       }
     ]
   },
-  { path: '/admin', element: <Header /> }
+  {
+    path: '/admin',
+    children: [
+      { index: true, element: <Shelter /> },
+      {
+        path: 'pets',
+        element: <AuthHOC />,
+        children: [{ index: true, element: <PetList /> }]
+      }
+    ]
+  }
 ])
 
 export default router
